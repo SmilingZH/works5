@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习六</title>
+    <!-- 全局样式 -->
+    <style>
+        /* * {
+            margin: 3px;
+            border: 1px solid black;
+        } */
+
+        body {
+            background-color: rgb(255, 244, 231);
+            height: 100%;
+            margin: 0;
+            position: relative;
+            top: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transform: scale();
+        }
+    </style>
+    <!-- 主体样式 -->
+    <style>
+        /* 卡片 */
+        .kp {
+            width: 210px;
+            height: 270px;
+            border-radius: 10px;
+            background: #212121;
+            display: flex;
+            gap: 5px;
+            padding: 10px;
+        }
+
+        .kp p {
+            height: 100%;
+            flex: 1;
+            overflow: hidden;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all .5s;
+            background: #212121;
+            border: 1px solid #ff5a91;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .kp p:hover {
+            flex: 4;
+        }
+
+        .kp p span {
+            min-width: 200px;
+            padding: 15px;
+            text-align: center;
+            transform: rotate(-90deg);
+            transition: all .5s;
+            text-transform: uppercase;
+            color: #ff568e;
+            letter-spacing: .1em;
+        }
+
+        .kp p:hover span {
+            transform: rotate(0);
+        }
+    </style>
+    <!-- 返回按钮样式 -->
+    <style>
+        /* 返回上一级按钮 */
+        .anniu {
+            box-shadow: inset 2.5px 2.5px 2.5px rgba(0, 0, 0, 0.2),
+                inset -2.5px -2.5px 7.5px rgba(255, 255, 255, 0.1),
+                2.5px 2.5px 7.5px rgba(0, 0, 0, 0.3),
+                -2.5px -2.5px 7.5px rgba(255, 255, 255, 0.1);
+            margin-top: 60px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            width: 100px;
+            border: 2px solid rgb(105, 105, 105);
+            border-radius: 20px;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+        .anniu:hover {
+            border: 2px solid rgb(255, 255, 255);
+            background-color: rgb(29, 29, 29);
+            color: white;
+        }
+    </style>
+    <!-- 代码区样式 -->
+    <style>
+        /* 代码区 */
+        .dmq {
+            /* border: 1px solid black; */
+            border-radius: 20px;
+            height: auto;
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            background-color: aliceblue;
+            box-shadow:
+                inset -2.5px -2.5px 7.5px rgba(255, 255, 255, 0.1),
+                2.5px 2.5px 7.5px rgba(0, 0, 0, 0.3),
+                -2.5px -2.5px 7.5px rgba(255, 255, 255, 0.1);
+        }
+
+        /* 类别 */
+        .html,
+        .css,
+        .js {
+            margin: 10px;
+            flex: 1;
+            height: 480px;
+            border-radius: 19px;
+            min-width: 30vh;
+
+        }
+
+        /* 类别文字样式 */
+        .lb-wz {
+            height: 30px;
+            margin: 10px;
+            border-radius: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ccffe9;
+            box-shadow:
+                inset -2.5px -2.5px 7.5px rgba(255, 255, 255, 0.1),
+                2.5px 2.5px 7.5px rgba(0, 0, 0, 0.3),
+                -2.5px -2.5px 7.5px rgba(255, 255, 255, 0.1);
+        }
+
+        /* 代码 */
+        .dm {
+            border-radius: 18px;
+            margin: 10px;
+            height: 415px;
+            overflow: auto;
+            background-color: rgb(171, 171, 171);
+            box-shadow: inset 2.5px 2.5px 2.5px rgba(0, 0, 0, 0.2),
+                inset -2.5px -2.5px 7.5px rgba(255, 255, 255, 0.1),
+                2.5px 2.5px 7.5px rgba(0, 0, 0, 0.3),
+                -2.5px -2.5px 7.5px rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 主体部分 -->
+    <div class="kp">
+        <p><span>html</span></p>
+        <p><span>css</span></p>
+        <p><span>js</span></p>
+    </div>
+    <!-- 返回按钮 -->
+    <div id="fh" class="anniu">返回上一级</div>
+    <script>
+        var fhan = document.getElementById('fh');
+        // 点击事件
+        fhan.addEventListener('click', function () {
+            // 用history对象的back方法返回上级页面
+            history.back();
+        });
+    </script>
+    <!-- 代码区 -->
+    <div class="dmq">
+        <!-- html部分 -->
+        <div class="html">
+            <div class="lb-wz">html</div>
+            <div class="dm">
+                <p>
+                    &lt;!-- 主体部分 --&gt;<br>
+                    &lt;div class="kp"&gt;<br>
+                    &lt;p&gt;&lt;span&gt;html&lt;/span&gt;&lt;/p&gt;<br>
+                    &lt;p&gt;&lt;span&gt;css&lt;/span&gt;&lt;/p&gt;<br>
+                    &lt;p&gt;&lt;span&gt;js&lt;/span&gt;&lt;/p&gt;<br>
+                    &lt;/div&gt;<br>
+                </p>
+            </div>
+        </div>
+        <!-- css部分 -->
+        <div class="css">
+            <div class="lb-wz">css</div>
+            <div class="dm">
+                <p>
+                    body {<br>
+                    background-color: rgb(255, 244, 231);<br>
+                    height: 100%;<br>
+                    margin: 0;<br>
+                    position: relative;<br>
+                    top: 10vh;<br>
+                    display: flex;<br>
+                    justify-content: center;<br>
+                    align-items: center;<br>
+                    flex-direction: column;<br>
+                    transform: scale();<br>
+                    }<br>
+                    /* 卡片 */<br>
+                    .kp {<br>
+                    width: 210px;<br>
+                    height: 270px;<br>
+                    border-radius: 10px;<br>
+                    background: #212121;<br>
+                    display: flex;<br>
+                    gap: 5px;<br>
+                    padding: 10px;<br>
+                    }<br>
+
+                    .kp p {<br>
+                    height: 100%;<br>
+                    flex: 1;<br>
+                    overflow: hidden;<br>
+                    cursor: pointer;<br>
+                    border-radius: 10px;<br>
+                    transition: all .5s;<br>
+                    background: #212121;<br>
+                    border: 1px solid #ff5a91;<br>
+                    display: flex;<br>
+                    justify-content: center;<br>
+                    align-items: center;<br>
+                    }<br>
+
+                    .kp p:hover {<br>
+                    flex: 4;<br>
+                    }<br>
+
+                    .kp p span {<br>
+                    min-width: 200px;<br>
+                    padding: 15px;<br>
+                    text-align: center;<br>
+                    transform: rotate(-90deg);<br>
+                    transition: all .5s;<br>
+                    text-transform: uppercase;<br>
+                    color: #ff568e;<br>
+                    letter-spacing: .1em;<br>
+                    }<br>
+
+                    .kp p:hover span {<br>
+                    transform: rotate(0);<br>
+                    }<br>
+                </p>
+            </div>
+        </div>
+        <!-- js部分 -->
+        <!-- <div class="js">
+                                <div class="lb-wz">js</div>
+                                <div class="dm">
+                                    <p></p>
+                                </div>
+                            </div> -->
+    </div>
+</body>
+
+</html>
